@@ -3,6 +3,36 @@ Treehouse Techdegree:
 FSJS Project 2 - Data Pagination and Filtering
 */
 
+/* 
+Dynammically insert the search bar in the header
+*/
+const studentsHeader = document.querySelector('.header');
+const searchBar = `
+  <label for="search" class="student-search">
+  <input id="search" placeholder="Search by name...">
+  <button type="button"><img src="img/icn-search.svg" alt="Search icon"></button>
+  </label>
+  `
+studentsHeader.insertAdjacentHTML('beforeend', searchBar);
+
+/*
+Create the search bar event handler
+*/
+studentsHeader.addEventListener('keyup', (e) => {
+  const searchString = e.target.value.toLowerCase();
+  console.log(searchString);
+  const filteredUsers = data.filter((data) => {
+    console.log(name);
+    return (
+      data.name.title.toLowerCase().includes(searchString) ||
+      data.name.first.toLowerCase().includes(searchString) ||
+      data.name.last.toLowerCase().includes(searchString)
+    );
+  });
+  console.log(filteredUsers);
+  //displayUsers(filteredUsers); function not made yet
+});
+
 /*
 Create the `showPage` function
 This function will create and insert/append the elements needed to display a "page" of nine students
